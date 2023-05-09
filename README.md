@@ -52,8 +52,4 @@ Teachers that guided us:
 # How to Contribute to the Project
 You can easily contribute to the project by implementing any of the features suggested above or whatever you want and makes the app better.
 # Thanks for reading till now
-─▄▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▄
-█░░░█░░░░░░░░░░▄▄░██░█
-█░▀▀█▀▀░▄▀░▄▀░░▀▀░▄▄░█
-█░░░▀░░░▄▄▄▄▄░░██░▀▀░█
-─▀▄▄▄▄▄▀─────▀▄▄▄▄▄▄▀
+Hope you enjoy the app!!!
