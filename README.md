@@ -39,6 +39,7 @@ We used:
 2. If you use VScode you can install the extension SQLite Viewer in orde to visualize the database.
 3. Have in mind that you must have all the files in the same folder.
 # Include Credits
+Team name: The multicultural coders
 Students that created the app:
   -Christos-Spyridon Karydis
   -Anastasios Grantas
@@ -51,3 +52,8 @@ Teachers that guided us:
 # How to Contribute to the Project
 You can easily contribute to the project by implementing any of the features suggested above or whatever you want and makes the app better.
 # Thanks for reading till now
+─▄▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▄
+█░░░█░░░░░░░░░░▄▄░██░█
+█░▀▀█▀▀░▄▀░▄▀░░▀▀░▄▄░█
+█░░░▀░░░▄▄▄▄▄░░██░▀▀░█
+─▀▄▄▄▄▄▀─────▀▄▄▄▄▄▄▀
