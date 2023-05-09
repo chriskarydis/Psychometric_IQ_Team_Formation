@@ -651,10 +651,10 @@ class IQTestGUI:
             ("What is the name of the tallest mountain in the world?", "Everest"),
             ("What is the capital of Greece?", "Athens"),
             ("What is the name of the smallest planet in our solar system?", "Mercury"),
-            ("What is the name of the famous scientist who developed the theory of relativity?", "Albert Einstein"),
+            ("What is the name of the famous scientist who developed the theory of relativity?", "Einstein"),
             ("What is the square root of 256?", "16"),
             ("What is the next number in this sequence? 1, 4, 9, 16, 25, ...", "36"),
-            ("Which country has the largest population in the world?", "China"),
+            ("Which country has the largest population in the world?", "India"),
             ("What is the name of the largest desert in the world?", "Sahara"),
             ("In what year did World War II end?", "1945")
         ]
