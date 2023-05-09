@@ -626,13 +626,13 @@ while run == 1:
             # Loop through the scripts and launch each one as a separate process
             for script in scripts_eng_psych:
                 # Launch the script as a subprocess
-                if script == 'Gui_Psychometric_test_EngVersion.py':
+                if script == 'Psychometric_IQ_Team_Formation-main\Gui_Psychometric_test_EngVersion.py':
                     result = subprocess.check_output(['python', script]) 
                     team_role = result.decode()
-                elif script == 'IQ_eng.py':
+                elif script == 'Psychometric_IQ_Team_Formation-main\IQ_eng.py':
                     result = subprocess.check_output(['python', script])
                     score = result.decode()
-                elif script == 'Re_Run_OR_End_ENG.py':
+                elif script == 'Psychometric_IQ_Team_Formation-main\Re_Run_OR_End_ENG.py':
                     result = subprocess.check_output(['python', script])
                     run = int(result.decode())
                 else:
@@ -643,13 +643,13 @@ while run == 1:
             # Επανέλαβε τα προγράμματα, το καθένα ως ξεχωριστή διαδικασία
             for script in scripts_gr_psych:
                 # Ξεκίνα το πρόγραμμα ως υποπρόγραμμα
-                if script == 'Gui_Psychometric_test_GrVersion.py':
+                if script == 'Psychometric_IQ_Team_Formation-main\Gui_Psychometric_test_GrVersion.py':
                     result = subprocess.check_output(['python', script])
                     team_role = result.decode()
-                elif script == 'IQ_gr.py':
+                elif script == 'Psychometric_IQ_Team_Formation-main\IQ_gr.py':
                     result = subprocess.check_output(['python', script])
                     score = result.decode()
-                elif script == 'Re_Run_OR_End_GR.py':
+                elif script == 'Psychometric_IQ_Team_Formation-main\Re_Run_OR_End_GR.py':
                     result = subprocess.check_output(['python', script])
                     run = int(result.decode())
                 else:
@@ -661,13 +661,13 @@ while run == 1:
             # Loop through the scripts and launch each one as a separate process
             for script in scripts_eng_iq:
                 # Launch the script as a subprocess
-                if script == 'IQ_eng.py':
+                if script == 'Psychometric_IQ_Team_Formation-main\IQ_eng.py':
                     result = subprocess.check_output(['python', script])
                     score = result.decode()
-                elif script == 'Gui_Psychometric_test_EngVersion.py':
+                elif script == 'Psychometric_IQ_Team_Formation-main\Gui_Psychometric_test_EngVersion.py':
                     result = subprocess.check_output(['python', script])
                     team_role = result.decode()
-                elif script == 'Re_Run_OR_End_ENG.py':
+                elif script == 'Psychometric_IQ_Team_Formation-main\Re_Run_OR_End_ENG.py':
                     result = subprocess.check_output(['python', script])
                     run = int(result.decode())
                 else:
@@ -678,13 +678,13 @@ while run == 1:
             # Επανέλαβε τα προγράμματα, το καθένα ως ξεχωριστή διαδικασία
             for script in scripts_gr_iq:
             # Ξεκίνα το πρόγραμμα ως υποπρόγραμμα
-                if script == 'IQ_gr.py':
+                if script == 'Psychometric_IQ_Team_Formation-main\IQ_gr.py':
                     result = subprocess.check_output(['python', script])
                     score = result.decode()
-                elif script == 'Gui_Psychometric_test_GrVersion.py':
+                elif script == 'Psychometric_IQ_Team_Formation-main\Gui_Psychometric_test_GrVersion.py':
                     result = subprocess.check_output(['python', script])
                     team_role = result.decode()
-                elif script == 'Re_Run_OR_End_GR.py':
+                elif script == 'Psychometric_IQ_Team_Formation-main\Re_Run_OR_End_GR.py':
                     result = subprocess.check_output(['python', script])
                     run = int(result.decode())
                 else:
