@@ -614,10 +614,10 @@ while run == 1:
     #______________________________________IQ AND PSYCHOMETRIC____________________________________________________
 
     # Define lists of scripts to run/Ορισμός λιστών των προγραμμάτων που θα τρέξουν
-    scripts_eng_iq = ['IQ_Welcome_eng.py', 'IQ_eng.py','Psychometric_Welcome_eng.py','Gui_Psychometric_test_EngVersion.py','Re_Run_OR_End_ENG.py']
-    scripts_gr_iq = ['IQ_Welcome_gr.py', 'IQ_gr.py','Psychometric_Welcome_gr.py','Gui_Psychometric_test_GrVersion.py','Re_Run_OR_End_GR.py']
-    scripts_eng_psych = ['Psychometric_Welcome_eng.py', 'Gui_Psychometric_test_EngVersion.py','IQ_Welcome_eng.py','IQ_eng.py','Re_Run_OR_End_ENG.py']
-    scripts_gr_psych = ['Psychometric_Welcome_gr.py', 'Gui_Psychometric_test_GrVersion.py','IQ_Welcome_gr.py','IQ_gr.py','Re_Run_OR_End_GR.py']
+    scripts_eng_iq = ['Psychometric_IQ_Team_Formation-main\IQ_Welcome_eng.py', 'Psychometric_IQ_Team_Formation-main\IQ_eng.py','Psychometric_IQ_Team_Formation-main\Psychometric_Welcome_eng.py','Psychometric_IQ_Team_Formation-main\Gui_Psychometric_test_EngVersion.py','Psychometric_IQ_Team_Formation-main\Re_Run_OR_End_ENG.py']
+    scripts_gr_iq = ['Psychometric_IQ_Team_Formation-main\IQ_Welcome_gr.py', 'Psychometric_IQ_Team_Formation-main\IQ_gr.py','Psychometric_IQ_Team_Formation-main\Psychometric_Welcome_gr.py','Psychometric_IQ_Team_Formation-main\Gui_Psychometric_test_GrVersion.py','Psychometric_IQ_Team_Formation-main\Re_Run_OR_End_GR.py']
+    scripts_eng_psych = ['Psychometric_IQ_Team_Formation-main\Psychometric_Welcome_eng.py', 'Psychometric_IQ_Team_Formation-main\Gui_Psychometric_test_EngVersion.py','Psychometric_IQ_Team_Formation-main\IQ_Welcome_eng.py','Psychometric_IQ_Team_Formation-main\IQ_eng.py','Psychometric_IQ_Team_Formation-main\Re_Run_OR_End_ENG.py']
+    scripts_gr_psych = ['Psychometric_IQ_Team_Formation-main\Psychometric_Welcome_gr.py', 'Psychometric_IQ_Team_Formation-main\Gui_Psychometric_test_GrVersion.py','Psychometric_IQ_Team_Formation-main\IQ_Welcome_gr.py','Psychometric_IQ_Team_Formation-main\IQ_gr.py','Psychometric_IQ_Team_Formation-main\Re_Run_OR_End_GR.py']
 
     global score, team_role
 
