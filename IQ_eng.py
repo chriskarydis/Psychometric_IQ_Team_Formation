@@ -554,7 +554,7 @@ def show_result():
     root.after(1000, root.destroy)
 
 # Read words from file
-with open('hangman_words_eng.txt', 'r') as f:
+with open('Psychometric_IQ_Team_Formation-main\hangman_words_eng.txt', 'r') as f:
     words = [line.strip() for line in f]
 
 # Set a new word for the game
