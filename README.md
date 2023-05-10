@@ -35,7 +35,7 @@ We used:
 5. Addition of music background and timer.
 6. More well designed, aesthetic, user friendly GUI.
 # How to Install and Run the Project
-1. Download pygame
+1. Download pygame - pip install pygame
 2. If you use VScode you can install the extension SQLite Viewer in orde to visualize the database.
 3. Have in mind that you must have all the files in the same folder.
 # Include Credits
@@ -51,5 +51,7 @@ Teachers that guided us:
   -Despoina Mouratidi
 # How to Contribute to the Project
 You can easily contribute to the project by implementing any of the features suggested above or whatever you want and makes the app better.
+# Βibliography
+The biggest part of the project is written by us. Also we found things at GitHub, StackOverFlow, W3schools, GeeksforGeeks and ChatGPT, and then we edited them in order to be used in our app. At the IQ games the tower of Hanoi mini game has been taken from another user of github and the url is: https://github.com/pmellingimenes/TowerHanoi4Python . Also, at the psychometric test the inspiration and the format of the questions was taken from this example website test: https://www.actioned.com/team-member-quiz/. In addition, the way how the role of the user is decided, came up through this pdf file http://www.nursingleadership.org.uk/pubs/BusynurseTeamRoles.pdf .
 # Thanks for reading till now
 Hope you enjoy the app!!!
