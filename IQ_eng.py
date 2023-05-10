@@ -492,6 +492,7 @@ pygame.quit()
 #___________________________________HANGMAN_______________________________________________
 
 def new_game():
+    # Funtion to bring a new word and crate a new hangman game
     global word, hidden_word, attempts
     word = random.choice(words)
     revealed_word = ['_' if i not in [0, len(word)-1] else word[i] for i in range(len(word))]
@@ -505,6 +506,7 @@ def new_game():
     result_label.config(text='')
 
 def guess_letter():
+    # Funtion to Guess a letter from the hidden word
     letter = entry.get().lower()
     entry.delete(0, tk.END)
 
@@ -533,11 +535,13 @@ def guess_letter():
 
 
 def update_display():
+    # Funtion to update the instance of the hidden word
     word_label.config(text=hidden_word.get())
     attempts_label.config(text=f'Attempts left: {attempts.get()}')
     guessed_letters_label.config(text=f'Guessed letters: {guessed_letters.get()}')
 
 def show_result():
+    # Function to show the result of the hangman
     result = "You won!" if '_' not in hidden_word.get() else "You lost!"
     result_label.config(text=result)
     
@@ -554,7 +558,7 @@ def show_result():
     root.after(1000, root.destroy)
 
 # Read words from file
-with open('Psychometric_IQ_Team_Formation-main\hangman_words_eng.txt', 'r') as f:
+with open('hangman_words_eng.txt', 'r') as f:
     words = [line.strip() for line in f]
 
 # Set a new word for the game
@@ -709,10 +713,12 @@ class IQTestGUI:
             tk.Label(result_window, text=message, font=("Helvetica", 16)).pack()
 
     def display_next_question(self):
+        # Function to display the next question
         self.question_label.config(text="Question {}: {}".format(self.question_index + 1, self.questions[self.question_index][0]), fg="black")
         self.submit_button.config(state=tk.ACTIVE)
 
     def display_final_score(self):
+        # Function to display the final sscore of the IQ test
         self.question_label.config(text="You have completed the IQ test!", fg="black")
         self.answer_entry.delete(0, tk.END)
         self.answer_entry.config(state=tk.DISABLED)
@@ -720,6 +726,7 @@ class IQTestGUI:
         self.master.after(1000, self.show_final_score)
 
     def show_final_score(self):
+        # Funtion to create a window to show the final score of the IQ test
         final_message = "You scored {} out of {}!".format(self.score, 19)
         self.score_label.config(text=final_message)
         # Schedule the destruction of the window after 1 second
@@ -745,4 +752,5 @@ y = (screen_height // 2) - (window_height // 2)
 root.geometry(f"+{x}+{y}")
 root.mainloop()
 
+# send the score to the main program
 print(score)
