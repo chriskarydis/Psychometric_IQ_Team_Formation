@@ -1,35 +1,35 @@
 import tkinter as tk
 import sys
 
-# Create a new Tkinter window
+# Δημιουργία νέου Tkinter παραθύρου
 window = tk.Tk()
 
-# Set the window title
+# Ορισμός τίτλου του παραθύρου
 window.title("ΨΥΧΟΜΕΤΡΙΚΟ Τεστ")
 
-# Get the screen width and height
+# Λήψη του πλάτους και του ύψους της οθόνης
 screen_width = window.winfo_screenwidth()
 screen_height = window.winfo_screenheight()
 
-# Set the window size
+# Καθορισμός του μεγέθους του παραθύρου
 window_width = 400
 window_height = 150
 window.geometry(f"{window_width}x{window_height}")
 
-# Calculate the x and y coordinates for the top-left corner of the window
+# Υπολογισμός των Χ και Ψ συντεταγμένων για την πάνω αριστερή γωνία του παραθύρου
 x = (screen_width // 2) - (window_width // 2)
 y = (screen_height // 2) - (window_height // 2)
 
-# Set the position of the window to the center of the screen
+# Καθορισμός της θέσης του παραθύρου στο κέντρο της οθόνης
 window.geometry(f"+{x}+{y}") 
 
-# Create a label with the welcome message
+# Δημιούργησε ένα label με το μήνυμα καλωσορίσματος
 welcome_label = tk.Label(window, text="Καλώς ορίσατε στο Ψυχομετρικό τεστ!", font=("Arial", 16))
 welcome_label.pack(pady=20)
 
-# Create a bigger start button
+# Δημουργία κουμπιού εκκίνησης
 start_button = tk.Button(window, text="Ας ξεκινήσουμε", font=("Arial", 16), command=sys.exit)
 start_button.pack(pady=10)
 
-# Run the Tkinter event loop
+# Εκτελέστε τον βρόχο του Tkinter
 window.mainloop()
