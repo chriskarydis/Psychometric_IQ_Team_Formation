@@ -3,6 +3,7 @@ import sys
 
 class App:
     def __init__(self, master):
+        # Ορισμός ερωτήσεων
         self.questions = {
             1: {
                 "text": "Σε ποιό χώρο αποδίδετε καλύτερα στην δουλεία σας;",
@@ -12,8 +13,8 @@ class App:
                     3: "Χαλαρή καφετέρια.",
                     4: "Τακτοποιημένο γραφείο."
                 },
-                "score": 0,
-                "score1": 0
+                "score": 0, # Μετρητής του σκορ
+                "score1": 0 # Μετρητής ερωτήσεων που έχουν απαντηθεί
             },
             2: {
                 "text": "Πώς θα περιέγραφες τις ώρες που δουλεύεις?",
@@ -114,7 +115,6 @@ class App:
                 "score": 0,
                 "score1": 9     
             },
-            # Add more questions as needed
         }
 
         self.current_question = 1
@@ -126,22 +126,23 @@ class App:
         self.line_label.pack()
 
         self.option_labels = {}
-        for i in range(1, 5):#den to pirazoume
+        for i in range(1, 5):
             self.option_labels[i] = tk.Label(master, text="")
             self.option_labels[i].pack()
 
-        self.answer = tk.Entry(master)
+        self.answer = tk.Entry(master) # υποδοχή απαντήσεων
         self.answer.pack()
 
-        self.submit = tk.Button(master, text="Υποβολή", command=self.submit_answer)
+        self.submit = tk.Button(master, text="Υποβολή", command=self.submit_answer) # κουμπί υποβολής
         self.submit.pack()
 
-        self.result_label = tk.Label(master, text="")
+        self.result_label = tk.Label(master, text="") # label αποτελέσματος
         self.result_label.pack()
 
         self.update_question()
 
-    def update_question(self):# Poses epiloges tha dixni
+    def update_question(self):
+        # Συνάρτηση ενημέρωσης των ερωτήσεων
         question_data = self.questions[self.current_question]
         self.question_label.config(text="Ερώτηση {}: {}".format(self.current_question, question_data["text"]))
 
@@ -149,28 +150,29 @@ class App:
             self.option_labels[i].config(text="{}. {}".format(i, question_data["options"][i]))
 
     def submit_answer(self):
+        # Συνάρτηση υποβολής των ερωτήσεων
         try:
             answer = int(self.answer.get())
         except ValueError:
-            self.result_label.config(text="Εισαγάγετε μια έγκυρη απάντηση (1-4).")
+            self.result_label.config(text="Εισαγάγετε μια έγκυρη απάντηση (1-4).") # Η τιμη εισ΄όδου πρέπει να είναι int
             return
 
         if answer < 1 or answer >= 5:
-            self.result_label.config(text="Εισαγάγετε μια έγκυρη απάντηση (1-4).")
+            self.result_label.config(text="Εισαγάγετε μια έγκυρη απάντηση (1-4).") # Η τιμη εισ΄όδου πρέπει να είναι 1 - 4
             return
 
         question_data = self.questions[self.current_question]
         question_data["score"] += answer
 
         question_data = self.questions[self.current_question]
-        question_data["score1"] += 1#To counter ton erotiseon pou apantithikan
+        question_data["score1"] += 1
 
         self.result_label.config(text="Το συνολικό σκορ σου {} είναι: {}".format(self.current_question, question_data["score"]))
-        self.result_label.config(text="Το συνολικό σκορ των απαντήσεων: {}".format( question_data["score1"]))# Oi sinolikes erotisis pou apantithikan
+        self.result_label.config(text="Το συνολικό σκορ των απαντήσεων: {}".format( question_data["score1"]))
 
         self.current_question += 1
 
-        if self.current_question > len(self.questions): #elegxei an apomenoun alles ervthseis gia na rvthsei alliws stamataei
+        if self.current_question > len(self.questions):
             self.show_final_score()
         else:
             self.update_question()
@@ -178,6 +180,7 @@ class App:
         self.answer.delete(0, tk.END)
 
     def show_final_score(self):
+        # Συνάρτηση προβολής του τελικού σκορ και του ρόλου
         # Αφαίρεση της τελευταίας ερώτησης
         self.question_label.pack_forget()
         self.line_label.pack_forget()
@@ -191,7 +194,7 @@ class App:
         global team_role
         team_role = ""
 
-         if 10 <= total_score and total_score <= 15:
+        if 10 <= total_score and total_score <= 15:
             self.result_label.config(text="Το συνολικό σκορ σου: {}\nΣυγχαριτήρια! Ο ρόλος σου είναι μέλος\nΈνα μέλος(Member) της ομάδας έχει ως σκοπό του να κάνει την δουλεία που του δόθηκε,\n να παραβρεθεί σε κάθε συνάντηση και να προσπαθεί να βρει ιδέες και λύσεις σε ένα πρόβλημα που μπορεί να υπάρξει στη υλοποίηση της δουλείας του.\n".format(total_score))   
             team_role = "Member"
         elif 15 < total_score and total_score <= 25:
@@ -205,27 +208,25 @@ class App:
             team_role = "Leader"
         
         print(team_role)
-        # Προγραμμάτησε την καταστροφή του παραθύρου σε 5 δευτερόλεπτα
-        #root.after(5000, root.destroy)
         end_button = tk.Button(root, text="Κλείσιμο", font=("Arial", 12), command=sys.exit)
         end_button.pack(pady=10)
 
 root = tk.Tk()
 root.title("Ψυχομετρικό Τεστ")
-# Get the screen width and height
+# Λήψη του πλάτους και του ύψους της οθόνης
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
-# Set the window size
+# Καθορισμός του μεγέθους του παραθύρου
 window_width = 1100
 window_height = 200
 root.geometry(f"{window_width}x{window_height}")
 
-# Calculate the x and y coordinates for the top-left corner of the window
+# Υπολογισμός των Χ και Ψ συντεταγμένων για την πάνω αριστερή γωνία του παραθύρου
 x = (screen_width // 2) - (window_width // 2)
 y = (screen_height // 2) - (window_height // 2)
 
-# Set the position of the window to the center of the screen
+# Καθορισμός της θέσης του παραθύρου στο κέντρο της οθόνης
 root.geometry(f"+{x}+{y}")
 app = App(root)
 root.mainloop()
