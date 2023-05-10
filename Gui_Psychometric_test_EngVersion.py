@@ -3,6 +3,7 @@ import sys
 
 class App:
     def __init__(self, master):
+        # set the questons
         self.questions = {
             1: {
                 "text": "What represents the workspace where you do your best work?",
@@ -12,8 +13,8 @@ class App:
                     3: "Cool Cafe",
                     4: "Organized Desk"
                 },
-                "score": 0,
-                "score1": 0
+                "score": 0, # counter of the score
+                "score1": 0 # counter of the questions answered
             },
             2: {
                 "text": "How would you describe your working hours?",
@@ -114,7 +115,6 @@ class App:
                 "score": 0,
                 "score1": 9     
             },
-            # Add more questions as needed
         }
 
         self.current_question = 1
@@ -126,7 +126,7 @@ class App:
         self.line_label.pack()
 
         self.option_labels = {}
-        for i in range(1, 5):#den to pirazoume
+        for i in range(1, 5):
             self.option_labels[i] = tk.Label(master, text="")
             self.option_labels[i].pack()
 
@@ -141,7 +141,8 @@ class App:
 
         self.update_question()
 
-    def update_question(self):# Poses epiloges tha dixni
+    def update_question(self):
+        # Functoin to update the questions
         question_data = self.questions[self.current_question]
         self.question_label.config(text="Question {}: {}".format(self.current_question, question_data["text"]))
         
@@ -149,28 +150,29 @@ class App:
             self.option_labels[i].config(text="{}. {}".format(i, question_data["options"][i]))
 
     def submit_answer(self):
+        # Function to submit the answer of the user
         try:
             answer = int(self.answer.get())
         except ValueError:
-            self.result_label.config(text="Please enter a valid answer (1-4).")
+            self.result_label.config(text="Please enter a valid answer (1-4).") # The input must be only int
             return
 
         if answer < 1 or answer >= 5:
-            self.result_label.config(text="Please enter a valid answer (1-4).")
+            self.result_label.config(text="Please enter a valid answer (1-4).") # The input must be only 1 - 4
             return
 
         question_data = self.questions[self.current_question]
-        question_data["score"] += answer#To counter gia tous pontous
+        question_data["score"] += answer
 
         question_data = self.questions[self.current_question]
-        question_data["score1"] += 1#To counter ton erotiseon pou apantithikan
+        question_data["score1"] += 1
 
-        self.result_label.config(text="Your score for question {} is: {}".format(self.current_question, question_data["score"]))# Oi sinoliki ponti pou mazepse o xristis
-        self.result_label.config(text="You total answers: {}".format( question_data["score1"]))# Oi sinolikes erotisis pou apantithikan
+        self.result_label.config(text="Your score for question {} is: {}".format(self.current_question, question_data["score"]))
+        self.result_label.config(text="You total answers: {}".format( question_data["score1"]))
 
         self.current_question += 1
 
-        if self.current_question > len(self.questions): #elegxei an apomenoun alles ervthseis gia na rvthsei alliws stamataei
+        if self.current_question > len(self.questions):
             self.show_final_score()
         else:
             self.update_question()
@@ -178,6 +180,7 @@ class App:
         self.answer.delete(0, tk.END)
 
     def show_final_score(self):
+        # Function to show the final score of the user and his/her team role
         # Remove question widgets
         self.question_label.pack_forget()
         self.line_label.pack_forget()
@@ -186,7 +189,7 @@ class App:
         self.answer.pack_forget()
         self.submit.pack_forget()
 
-        ts = sum([question_data["score"] for question_data in self.questions.values()]) #ts = total_score
+        ts = sum([question_data["score"] for question_data in self.questions.values()]) 
 
         global team_role
         team_role = ""
@@ -208,9 +211,7 @@ class App:
             team_role = "Leader"
 
         print(team_role)
-        # Schedule the destruction of the window after 5 second
-        #root.after(5000, root.destroy)
-        # Create a bigger start button
+
         end_button = tk.Button(root, text="Close", font=("Arial", 12), command=sys.exit)
         end_button.pack(pady=10)
         
