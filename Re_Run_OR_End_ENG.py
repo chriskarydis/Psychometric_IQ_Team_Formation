@@ -2,11 +2,13 @@ import tkinter as tk
 from tkinter import messagebox
 
 def re_run():
+    # Function to re-run the program
     messagebox.showinfo("Re-run", "You have chosen to re-run the tests.")
     print(1)
     root.destroy()
 
 def close():
+    # Function to terminate the program
     messagebox.showinfo("Close", "You have chosen to close the tests.")
     print(0)
     root.destroy()
