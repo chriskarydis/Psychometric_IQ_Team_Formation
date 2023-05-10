@@ -2,31 +2,33 @@ import tkinter as tk
 from tkinter import messagebox
 
 def re_run():
+    # Συνάρτηση επανάληψης του πργράμματος
     messagebox.showinfo("Επανάληψη", "Επιλέξατε την επανάληψη των τεστ.")
     print(1)
     root.destroy()
 
 def close():
+    # Συνάρτηση τερματισμού του προγράμματος
     messagebox.showinfo("Τερματισμός", "Επιλέξατε τον τερματισμό των τεστ.")
     print(0)
     root.destroy()
 
 root = tk.Tk()
 root.title("Επανάληψη ή Τερματισμός")
-# Get the screen width and height
+# Λήψη του πλάτους και του ύψους της οθόνης
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
-# Set the window size
+# Καθορισμός του μεγέθους του παραθύρου
 window_width = 350
 window_height = 150
 root.geometry(f"{window_width}x{window_height}")
 
-# Calculate the x and y coordinates for the top-left corner of the window
+# Υπολογισμός των Χ και Ψ συντεταγμένων για την πάνω αριστερή γωνία του παραθύρου
 x = (screen_width // 2) - (window_width // 2)
 y = (screen_height // 2) - (window_height // 2)
 
-# Set the position of the window to the center of the screen
+# Καθορισμός της θέσης του παραθύρου στο κέντρο της οθόνης
 root.geometry(f"+{x}+{y}") 
 
 label = tk.Label(root, text="Θα θέλατε να ξανά τρέξετε τα τεστ ή να τα τερματίσετε;")
