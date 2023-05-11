@@ -6,66 +6,66 @@ import pygame
 
 global score
 score = 0
-#___________________________________ANOTHER_NUMBER_______________________________________________
+#___________________________________ΑΛΛΟΣ_ΑΡΙΘΜΟΣ_______________________________________________
 class GuessingGameGUI:
     def __init__(self, master):
 
         self.master = master
         self.master.title("Guessing Game")
         
-        # Get the screen width and height
+        # Λήψη του πλάτους και του ύψους της οθόνης
         screen_width = self.master.winfo_screenwidth()
         screen_height = self.master.winfo_screenheight()
 
-        # Set the window size
+        # Καθορισμός του μεγέθους του παραθύρου
         window_width = 450
         window_height = 170
         self.master.geometry(f"{window_width}x{window_height}")
 
-        # Calculate the x and y coordinates for the top-left corner of the window
+        # Υπολογισμός των Χ και Ψ συντεταγμένων για την πάνω αριστερή γωνία του παραθύρου
         x = (screen_width // 2) - (window_width // 2)
         y = (screen_height // 2) - (window_height // 2)
 
-        # Set the position of the window to the center of the screen
+        # Καθορισμός της θέσης του παραθύρου στο κέντρο της οθόνης
         self.master.geometry(f"+{x}+{y}")
 
-        # Create a label to display the prompt
+        # Δημιούργησε ένα label με την ερώτηση
         self.prompt_label = tk.Label(master, text="Συμφωνα με τους αριθμούς παρακάτω ποιός θα έπρεπε να είναι ο επόμενος;")
         self.prompt_label.pack()
         
-        # Create a label to display the sequence
+        # # Δημιούργησε ένα label με την ακολουθία
         self.sequence_label = tk.Label(master, text="0, 2, 6, 12, 20, 30")
         self.sequence_label.pack()
         
-        # Create an entry widget for the user to input their answer
+        # Δημιουργία ενός entry widget για τον χρήστη έτσι ώστε να εισάγει την απάντηση
         self.answer_entry = tk.Entry(master)
         self.answer_entry.pack()
         
-        # Create a button to submit the user's answer
+        # Δημιουργία κουμπιού για την υποβολή των απαντήσεων
         self.submit_button = tk.Button(master, text="Υποβολή", command=self.check_answer)
         self.submit_button.pack()
         
-        # Create a label to display feedback on the user's answer
+        # Δημιουργία ενός label για να δωθεί ανατροφοδότηση στην απάντηση του χρήστη
         self.feedback_label = tk.Label(master, text="")
         self.feedback_label.pack()
         
-        # Create a label to display the user's score
+        # Δημιουργία ενός label για την παρουσίαση του σκορ
         self.score_label = tk.Label(master, text="Σκορ: 0")
         self.score_label.pack()
         
-        # Create a button to switch the language
+        # Δημιουργία κουμπιού αλλαγής γλώσσας
         self.switch_button = tk.Button(master, text="Αλλαγή γλώσσας", command=self.switch_language)
         self.switch_button.pack()
         
-        # Initialize game variables
+        # Αρχικοποίηση μεταβλητών
         self.language = "gr"
         self.score = 0
         
     def check_answer(self):
-        # Get the user's answer from the entry widget
+        # Πάρε την απάντηση του χρήστη από την είσοδο
         answer = self.answer_entry.get()
         
-        # Check the answer and update the feedback label and score
+        # Έλεγξε την απάντηση και ενημέρωσε το σκορ και το feedback label
         if answer == "42":
             self.feedback_label.config(text="Correct!")
             self.score += 1
@@ -75,7 +75,7 @@ class GuessingGameGUI:
                 self.feedback_label.config(text="Correct!", fg="green")
             elif self.language == "gr":
                 self.feedback_label.config(text="Σωστά!", fg="green")
-            # Schedule the destruction of the window after 1 second
+            # Προγραμματισμός της καταστροφής του παραθύρου 1 δευτερόλεπτο μετά
             root.after(1000, root.destroy)
         else:
             if self.language == "eng":
@@ -88,11 +88,11 @@ class GuessingGameGUI:
         elif self.language == "gr":
             self.score_label.config(text=f"Σκορ: {self.score}")
         
-        # Clear the answer entry widget
+        # Εκαθάρηση της εισόδου δεδομένων
         self.answer_entry.delete(0, tk.END)
     
     def switch_language(self):
-        # Update the language and prompt label
+        # Ενημέρωση γλώσσαας και του prompt label
         if self.language == "eng":
             self.language = "gr"
             self.prompt_label.config(text="Συμφωνα με τους αριθμούς παρακάτω ποιός θα έπρεπε να είναι ο επόμενος;")
@@ -106,33 +106,33 @@ class GuessingGameGUI:
             self.switch_button.config(text="Switch Language")
             self.submit_button.config(text="Submit")
         
-        # Update the sequence label
+        # Ενημέρωση του label ακολουθίας
         self.sequence_label.config(text="0, 2, 6, 12, 20, 30")
         
-        # Clear the answer entry widget and feedback label
+        # Καθαρισμός της εισόδου και του feedback label
         self.answer_entry.delete(0, tk.END)
         self.feedback_label.config(text="")
         
 root = tk.Tk() 
 app = GuessingGameGUI(root)
-# Get the screen width and height
+# Λήψη του πλάτους και του ύψους της οθόνης
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
-# Set the window size
+# Καθορισμός του μεγέθους του παραθύρου
 window_width = 450
 window_height = 170
 root.geometry(f"{window_width}x{window_height}")
 
-# Calculate the x and y coordinates for the top-left corner of the window
+# Υπολογισμός των Χ και Ψ συντεταγμένων για την πάνω αριστερή γωνία του παραθύρου
 x = (screen_width // 2) - (window_width // 2)
 y = (screen_height // 2) - (window_height // 2)
 
-# Set the position of the window to the center of the screen
+# Καθορισμός της θέσης του παραθύρου στο κέντρο της οθόνης
 root.geometry(f"+{x}+{y}")
 root.mainloop()
 
-#___________________________________CORRECT_NUMBER_______________________________________________
+#___________________________________ΣΩΣΤΟΣ_ΑΡΙΘΜΟΣ_______________________________________________
 
 array = [[2, 8, 7], 
          [6, 9, 5], 
@@ -140,74 +140,74 @@ array = [[2, 8, 7],
          [7, 4, None]]
 
 def replace_none(array_display):
-    # Get the user's input from the Entry widget
+    # Πάρε την είσοδου του χρήστη από το winget εισόδου
     new_value = entry.get()
     
-    # Check if the user entered 9 and update the array if true
+    # Έλεγξε αν ο χρήστης έδωσε 9 και ενημέρωσε αν είναι Αληθής η συνθήκη
     if new_value == '9':
         array[-1][-1] = int(new_value)
-        # Update the array_display Label with the new array
+        # Αναβάθμιση του array_display Label με τον καινούργιο πίνακα
         array_display.config(text=array)
         error_label.config(text="Σωστά! Αντίο!", fg="green")
         global score
         score+=1
         score_label.config(text=f"Σκορ: {score}")
-        # Schedule the destruction of the window after 1 second
+        # Προγραμματισμός της καταστροφής του παραθύρου σε ένα δευτερόλεπτο
         root.after(1000, root.destroy)
 
     else:
-        # Display an error message if the user entered an invalid value
+        # Εμφάνισε μήνυμα λάθους αν ο χρήστης δεν δώσει 9
         error_label.config(text="Μη έγκυρη τιμή. Η σωστή τιμή για το 'None' είναι το 9.", fg="red")
         root.after(1000, root.destroy)
-    # Clear the input in the Entry widget
+    # Καθαρισμός του widget εισόδου
     entry.delete(0, 'end')
 
-# Create the main window
+# Λήψη του πλάτους και του ύψους της οθόνης
 root = tk.Tk()
 # Get the screen width and height
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
-# Set the window size
+# Καθορισμός του μεγέθους του παραθύρου
 window_width = 350
 window_height = 150
 root.geometry(f"{window_width}x{window_height}")
 
-# Calculate the x and y coordinates for the top-left corner of the window
+# Υπολογισμός των Χ και Ψ συντεταγμένων για την πάνω αριστερή γωνία του παραθύρου
 x = (screen_width // 2) - (window_width // 2)
 y = (screen_height // 2) - (window_height // 2)
 
-# Set the position of the window to the center of the screen
+# Καθορισμός της θέσης του παραθύρου στο κέντρο της οθόνης
 root.geometry(f"+{x}+{y}") 
 
-# Create a Label and an Entry widget to prompt the user for input
+# Δημιουργία Label και ενός Entry widget για να προτρέψουμε το χρήστη να εισάγει απάντηση
 input_label = tk.Label(root, text="Δώστε μια τιμή για το 'None':")
 input_label.pack()
 entry = tk.Entry(root)
 entry.pack()
 
-# Create a Button to replace the None value
+# Δημιυργία κουμπιού για αντικατάσταση του "None"
 replace_button = tk.Button(root, text="Αντικατάσταση", command=lambda: replace_none(array_display))
 replace_button.pack()
 
-# Create a label to display the user's score
+# Δημιουργία label για παρουσίασει του σκορ του χρήστη
 score_label = tk.Label(root, text=f"Σκορ: {score}")
 score_label.pack()
 
-# Create a Label to display error messages
+# Δημιουργία Label για την εμφάνιση μηνύματος σφάλματος
 error_label = tk.Label(root, fg="red")
 error_label.pack()
 
- # Create a Label to display the array in the main window
+ # Δημιουργία Label για εμφάνιση του πίνακα στο κύριο παράθυρο
 array_display = tk.Label(root, text=array)
 array_display.pack()
 
-# Start the GUI event loop
+# Έναρξη του βρόγχου γεγονότων GUI
 root.mainloop()
 
-#___________________________________RANDOM_EQUATION_______________________________________________
+#___________________________________ΤΥΧΑΙΑ ΕΞΙΣΩΣΗ_______________________________________________
 
-# Generate a random equation with random coefficients
+# Δημουργία τυχαίας συνάρτησης με τυχαίους συντελεστές
 def random_equation(a):
     b=0
     while b==0:
@@ -216,8 +216,9 @@ def random_equation(a):
     equation = f"{b}*x + {c} = {b*a + c}"
     return equation
 
-# Check the answer and update the score
+# Έλεγχος απάντησης και ενημέρωηση σκορ
 def check_answer():
+    # Συνάρτηση ελέγχου απάντησης
     global score
     answer = answer_entry.get()
     if answer == str(a):
@@ -226,7 +227,7 @@ def check_answer():
         elif language_pref == "gr":
             result_label.config(text="Σωστά!", fg="green")
         score += 1
-        # Schedule the destruction of the window after 1 second
+        # Προγραμματισμός της καταστορφής του παραθύρου σε 1 δευτερόλεπτο
         root.after(1000, root.destroy)
     else:
         if language_pref == "eng":
@@ -241,10 +242,10 @@ def check_answer():
 
     check_button.config(state=tk.DISABLED)
 
-    # Clear the answer entry widget
+    # Καθαρισμός της εισόδου δεδομένων
     answer_entry.delete(0, tk.END)
 
-# Generate a new equation and update the GUI
+# Δημιουργία νέας εξίσωσης και ενημέρωση GUI
 def new_equation():
     global a
     a = random.randint(-10, 10)
@@ -254,7 +255,7 @@ def new_equation():
     answer_entry.delete(0, tk.END)
     check_button.config(state=tk.ACTIVE)
 
-# Set the language preference to English
+# Προτίμηση γλώσσαας Αγγλικά
 def set_english():
     global language_pref
     language_pref = "eng"
@@ -263,7 +264,7 @@ def set_english():
     new_button.config(text="New Equation")
     score_label.config(text=f"Score: {score}")
 
-# Set the language preference to Greek
+# Προτίμηση γλώσσας Ελληνικά
 def set_greek():
     global language_pref
     language_pref = "gr"
@@ -272,28 +273,28 @@ def set_greek():
     new_button.config(text="Νέα εξίσωση")
     score_label.config(text=f"Σκορ: {score}")
 
-# Initialize the GUI and language preference
+# Αρχικοποίηση  GUI και της γλώσσας προτίμησης
 a = 0
 language_pref = "gr"
 root = tk.Tk()
-# Get the screen width and height
+# Λήψη του πλάτους και του ύψους της οθόνης
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
-# Set the window size
+# Καθορισμός του μεγέθους του παραθύρου
 window_width = 350
 window_height = 500
 root.geometry(f"{window_width}x{window_height}")
 
-# Calculate the x and y coordinates for the top-left corner of the window
+# Υπολογισμός των Χ και Ψ συντεταγμένων για την πάνω αριστερή γωνία του παραθύρου
 x = (screen_width // 2) - (window_width // 2)
 y = (screen_height // 2) - (window_height // 2)
 
-# Set the position of the window to the center of the screen
+# Καθορισμός της θέσης του παραθύρου στο κέντρο της οθόνης
 root.geometry(f"+{x}+{y}") 
 root.title("Random Equation Game")
 
-# Create the language preference buttons
+# Δημιουργία κουμπιών προτίμησης γλώσσας
 language_frame = tk.Frame(root)
 language_frame.pack(pady=10)
 
@@ -324,7 +325,7 @@ new_button.pack(pady=10)
 score_label = tk.Label(root, font=("Arial", 18))
 score_label.pack(pady=20)
 
-# Set the initial language preference to English and generate a new equation
+# Ορισμός της αρχικής γλώσσας προτίμησης στα Ελληνικά και ενημερώση GUI
 set_greek()
 new_equation()
 
@@ -333,25 +334,25 @@ root.mainloop()
 #___________________________________HANOI_______________________________________________
 
 """
-Tower of Hanoi for Python - Main Module
+Πύργοι του Ανόι για Python - Main Module
 """
 import models_gr
-# Define screen constants
+# Ορισμός σταθερών οθόνης
 SCREEN_WIDTH = 900
 SCREEN_HEIGHT = 700
-# Color constants object
+# Χεώμα σταθερών αντικειμένου
 color = models_gr.ColorConstants()
-# Init pygame
+# Init pygame / κλάση κατασκευής
 pygame.init()
-# Define the screen (and it's properties)
+# Ορισμός της οθόνης και των ιδιοτήτων της
 size = [SCREEN_WIDTH, SCREEN_HEIGHT]
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Πύργος του Ανόι για Python")
-# Create main menu object
+# Δημιουργία αντικειμένου του κεντρικού μενού
 menu = models_gr.MainMenu(SCREEN_WIDTH,SCREEN_HEIGHT)
-# Create game object
+# Δημιουργία αντικειμένου παιχνιδιού
 game = models_gr.Game(SCREEN_WIDTH,SCREEN_HEIGHT)
-# Discs' move variables
+# Μεταβλητές κίνησης δίσκων
 done = False
 drag = False
 drop = False
@@ -360,13 +361,13 @@ game_over = False
 init_game = False
 disc_index = None
 last_pos = [0,0]
-# Moves counter
+# Μετακίνηση μετρητή
 moves_counter = 0
-# Manage how fast the screen updates
+# Διαχείρηση του πόσο γρήγορα ανανεώωνεται η οθόνη
 clock = pygame.time.Clock()
-# -------- Main Game Loop -----------
+# -------- Βρόγχος κύριου παιχνιδιού -----------
 while not done:
-    # --- Main event loop
+    # --- Κύριος βρόγχος
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
@@ -414,12 +415,12 @@ while not done:
             drag = False
             drop = True
     screen.fill(game.WHITE)
-    # Title line
+    # Γραμμή τίτλου
     pygame.draw.line(screen, game.BLACK, [0, 60], [SCREEN_WIDTH,60], 5)
-    # Text font,size, bold and italic
+    # Τύπος γραμματοσειράς,μέγεθος, έντονη γραμματοσειρά και πλάγια γράμματα
     font = pygame.font.SysFont('Calibri', 30, False, False)
     title_font = pygame.font.SysFont('Calibri', 50, False, False)
-    # Info Texts
+    # Κείμενο πληροφορίας
     game_title = title_font.render("Πύργος του Ανόι ", True, color.BLACK)
     screen.blit(game_title, [((SCREEN_WIDTH/2)-(game_title.get_width()/2)),20])
     if init_game:
@@ -480,18 +481,19 @@ while not done:
     else:
         menu.sprites_list.draw(screen)
 
-    # --- update  screen.
+    # --- Αναννέωση οθόμης.
     pygame.display.flip()
-    # --- Limit to 60 frames per second
+    # --- Περιορισμός σε 60 frames στο δευτερόλεπτο
     clock.tick(60)
 pygame.quit()
 
-#___________________________________HANGMAN_______________________________________________
+#___________________________________ΚΡΕΜΑΛΑ_______________________________________________
 
 import tkinter as tk
 import random
 
 def new_game():
+    # Συνάρτηση δημιουργίας νέου παιχνιδιού
     global word, hidden_word, attempts
     word = random.choice(words)
     revealed_word = ['_' if i not in [0, len(word)-1] else word[i] for i in range(len(word))]
@@ -505,6 +507,7 @@ def new_game():
     result_label.config(text='')
 
 def guess_letter():
+    # Συνάρτηση μαντεηιας και γνώσης
     letter = entry.get().upper()
     entry.delete(0, tk.END)
 
@@ -523,7 +526,7 @@ def guess_letter():
                     current_hidden_word[i] = letter
             hidden_word.set(' '.join(current_hidden_word))
     else:
-        # Reset the game and choose a new word
+        # Επαναφορά παιχνιδιύ
         new_game()
 
     update_display()
@@ -533,11 +536,13 @@ def guess_letter():
 
 
 def update_display():
+    # Συνάρτηση ενημέρωσης.
     word_label.config(text=hidden_word.get())
     attempts_label.config(text=f'Προσπάθειες που απομένουν: {attempts.get()}')
     guessed_letters_label.config(text=f'Γράμματα που μαντέυτηκαν: {guessed_letters.get()}')
 
 def show_result():
+    #Συνάρτηση αποτελεσμάυων
     result = "Συγχαρητήρια, βρήκες την λέξη!" if '_' not in hidden_word.get() else "Έχασες!"
     result_label.config(text=result)
     
@@ -546,36 +551,36 @@ def show_result():
         score +=1
 
     if attempts.get() == 0:
-        # Reveal the entire word when the player loses
+        # RΑποκάλυψη της κρυμμένης λέξης και ενημέρψσει του σκρο.
         hidden_word.set(word)
         update_display()
 
-    # delay for 2 seconds before starting a new game
+    # Αναμονή 2 δευτερόλεπτα πριν κλείσει
     root.after(1000, root.destroy)
 
-# Read words from file
+# Διάβασμα αρεχχείων από αρχεία
 with open('hangman_words_gr.txt', 'r', encoding='utf-8') as f:
     words = [line.strip() for line in f]
 
-# Set a new word for the game
+# Αρχικοποίηση νέας λέξης για το παιχνίδι
 word = random.choice(words)
 
 root = tk.Tk()
 root.title('ΚΡΕΜΑΛΑ')
-# Get the screen width and height
+# Λήψη του πλάτους και του ύψους της οθόνης
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
-# Set the window size
+# Καθορισμός του μεγέθους του παραθύρου
 window_width = 600
 window_height = 550
 root.geometry(f"{window_width}x{window_height}")
 
-# Calculate the x and y coordinates for the top-left corner of the window
+# Υπολογισμός των Χ και Ψ συντεταγμένων για την πάνω αριστερή γωνία του παραθύρου
 x = (screen_width // 2) - (window_width // 2)
 y = (screen_height // 2) - (window_height // 2)
 
-# Set the position of the window to the center of the screen
+# Καθορισμός της θέσης του παραθύρου στο κέντρο της οθόνης
 root.geometry(f"+{x}+{y}") 
 
 hidden_word = tk.StringVar()
@@ -594,7 +599,7 @@ guess_button.grid(row=1, column=1, pady=10)
 attempts_label = tk.Label(root, font=('Arial', 18))
 attempts_label.grid(row=2, column=0, columnspan=2, pady=20)
 
-# Create a label to display the user's score
+# Δημιυργία ενός label για παρουσίασει του σκορ
 score_label = tk.Label(root, text=f"Σκορ: {score}", font=('Arial', 18))
 score_label.grid(row=6, column=0, columnspan=2, pady=20)
 
@@ -619,15 +624,15 @@ class IQTestGUI:
         self.master = master
         master.title("IQ Test")
 
-        # Get the screen width and height
+        # Λήψη του πλάτους και του ύψους της οθόνης
         screen_width = master.winfo_screenwidth()
         screen_height = master.winfo_screenheight()
 
-        # Calculate the x and y coordinates for the top-left corner of the window
+        # Υπολογισμός των Χ και Ψ συντεταγμένων για την πάνω αριστερή γωνία του παραθύρου
         x = (screen_width // 2) - (window_width // 2)
         y = (screen_height // 2) - (window_height // 2)
 
-        # Set the position of the window to the center of the screen
+        # Καθορισμός της θέσης του παραθύρου στο κέντρο της οθόνης
         master.geometry(f"+{x}+{y}")
 
         self.question_label = tk.Label(master, text="Ερώτσηση 1: Τι χρώμα είναι η μπανάνα?", font=("Helvetica", 16))
@@ -664,6 +669,7 @@ class IQTestGUI:
 
 
     def submit_answer(self):
+        #Συνάρτηση υποβολής απάντησης
         answer = self.answer_entry.get().upper()
         correct_answer = self.questions[self.question_index][1].upper()
         if answer == correct_answer:
@@ -685,7 +691,7 @@ class IQTestGUI:
             self.answer_entry.config(state=tk.DISABLED)
             self.submit_button.config(state=tk.DISABLED)
             
-            # show final score and message
+            # Παρουσίαση τελικού σκορ και του μηνύματος
             final_score = "Τελικό Σκορ: {}/{}".format(self.score, 19)
             if self.score >= 15:
                 message = "Συγχαρητήρια! Είσαι ιδιοφυία!"
@@ -697,25 +703,28 @@ class IQTestGUI:
                 message = "Ουπς! Ίσως θα έπρεπε να διαβάζεις περισσότερο."
             result_window = tk.Toplevel(self.master)
             result_window.title("Αποτέλεσμα IQ τεστ")
-            # Get the screen width and height
+            # Λήψη του πλάτους και του ύψους της οθόνης
             screen_width = result_window.winfo_screenwidth()
             screen_height = result_window.winfo_screenheight()
 
-            # Calculate the x and y coordinates for the top-left corner of the window
+            # Υπολογισμός των Χ και Ψ συντεταγμένων για την πάνω αριστερή γωνία του παραθύρου
             x = (screen_width // 2) - (window_width // 2)
             y = (screen_height // 2) - (window_height // 2)
 
-            # Set the position of the window to the center of the screen
+            
+            # Καθορισμός της θέσης του παραθύρου στο κέντρο της οθόνης
             result_window.geometry(f"+{x}+{y}")
 
             tk.Label(result_window, text=final_score, font=("Helvetica", 16)).pack()
             tk.Label(result_window, text=message, font=("Helvetica", 16)).pack()
 
     def display_next_question(self):
+        #Συνάρτηση παρουσίασης της επόμενης ερώτησης
         self.question_label.config(text="Eρώτηση {}: {}".format(self.question_index + 1, self.questions[self.question_index][0]), fg="black")
         self.submit_button.config(state=tk.ACTIVE)
 
     def display_final_score(self):
+        # Συνάρτηση εμφάνησης του τελικού σκορ
         self.question_label.config(text="Τελείωσες το IQ τεστ!", fg="black")
         self.answer_entry.delete(0, tk.END)
         self.answer_entry.config(state=tk.DISABLED)
@@ -725,17 +734,18 @@ class IQTestGUI:
     def show_final_score(self):
         final_message = "Πέτυχες {} στα {}!".format(self.score, 19)
         self.score_label.config(text=final_message)
-        # Schedule the destruction of the window after 1 second
+        # Προγραμματισμός της καταστροφ΄ής του παραθύρου μετά από ενα λεπτό
         root.after(2000, root.destroy)
 
 
 root = tk.Tk()
 app = IQTestGUI(root)
-# Get the screen width and height
+
+# Λήψη του πλάτους και του ύψους της οθόνης
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
-# Set the window size
+# Ορισμός του μεγέθους της ομάδας
 window_width = 1050
 window_height = 150
 root.geometry(f"{window_width}x{window_height}")
@@ -744,9 +754,9 @@ root.geometry(f"{window_width}x{window_height}")
 x = (screen_width // 2) - (window_width // 2)
 y = (screen_height // 2) - (window_height // 2)
 
-# Set the position of the window to the center of the screen
+# Καθορισμός της θέσης του παραθύρου στο κέντρο της οθόνης
 root.geometry(f"+{x}+{y}") 
 root.mainloop()
 
-
+# Πέρασμα της μεταβλητης στο κύριο πρόγραμμα
 print(score)
