@@ -6,37 +6,35 @@ import re
 import sqlite3
 import subprocess
 
-#loop program variable
+#loop program variable / βρόγχος που εξαρτάται από την μεταβλτητή run
 run = 1
 
 while run == 1:
-    # Create a new Tkinter window
+    # Δημιουργία νέου παράθυρο Tkinter
     window = tk.Tk()
 
-    # Set the window title
-    window.title("Welcome")
+    # Καθορισμός τίτλου του παραθύρου
 
-    # Get the screen width and height
+    # Λήψη του πλάτους και του ύψους της οθόνης
     screen_width = window.winfo_screenwidth()
     screen_height = window.winfo_screenheight()
 
-    # Set the window size
+    # Ορισμός του μεγέθους
     window_width = 500
     window_height = 200
     window.geometry(f"{window_width}x{window_height}")
-
-    # Calculate the x and y coordinates for the top-left corner of the window
+    # Υπολογισμός των Χ και Ψ συντεταγμένων για την πάνω αριστερή γωνία του παραθύρου
     x = (screen_width // 2) - (window_width // 2)
     y = (screen_height // 2) - (window_height // 2)
 
-    # Set the position of the window to the center of the screen
+    # Καθορισμός της θέσης του παραθύρου στο κέντρο της οθόνης
     window.geometry(f"+{x}+{y}")
 
-    # Create a label with the welcome message
+    # Δημιουρ΄γστε ένα label με το μύνημα καλοσορίσματος
     welcome_label = tk.Label(window, text="Welcome to our App! / \n Καλωσήρθατε στην εφαρμογή μας!", font=("Arial", 16))
     welcome_label.pack(pady=20)
 
-    # Define a function to close the window
+    #Ορισμός συναρτήσεων
     def close_window():
         window.destroy()
 
@@ -112,6 +110,7 @@ while run == 1:
     #______________________________________UPDATE USER / ΑΝΑΝΕΩΣΗ ΧΡΗΣΤΗ____________________________________________________
 
     def update_user_eng(username, value, field_to_update):
+        # Funtion the days lke before
         try:
             conn = sqlite3.connect("users.db")
             c = conn.cursor()
@@ -125,6 +124,7 @@ while run == 1:
 
 
     def update_user_gr(username, value, field_to_update):
+            # Συνάρτηση για αλλαγη του ονόματος και κάποιο εμαιλ
             try:
                 conn = sqlite3.connect("users.db")
                 c = conn.cursor()
@@ -380,20 +380,20 @@ while run == 1:
                 self.master = master
                 master.title("Σύνδεση")
 
-                # Get the screen width and height
+                # Λήψη του πλάτους και του ύψους της οθόνης
                 screen_width = self.master.winfo_screenwidth()
                 screen_height = self.master.winfo_screenheight()
 
-                # Set the window size
+                # Καθορισμός του μεγέθους του παραθύρου
                 window_width = 200
                 window_height = 120
                 self.master.geometry(f"{window_width}x{window_height}")
 
-                # Calculate the x and y coordinates for the top-left corner of the window
+                # Υπολογισμός των Χ και Ψ συντεταγμένων για την πάνω αριστερή γωνία του παραθύρου
                 x = (screen_width // 2) - (window_width // 2)
                 y = (screen_height // 2) - (window_height // 2)
 
-                # Set the position of the window to the center of the screen
+                # Θέσε την θέση του συνεδρίου στο κέντρο της οθόονης
                 self.master.geometry(f"+{x}+{y}")
                 
                 # Δημιουργία της φόρμας σύνδεσης
@@ -614,10 +614,10 @@ while run == 1:
     #______________________________________IQ AND PSYCHOMETRIC____________________________________________________
 
     # Define lists of scripts to run/Ορισμός λιστών των προγραμμάτων που θα τρέξουν
-    scripts_eng_iq = ['Psychometric_IQ_Team_Formation-main\IQ_Welcome_eng.py', 'Psychometric_IQ_Team_Formation-main\IQ_eng.py','Psychometric_IQ_Team_Formation-main\Psychometric_Welcome_eng.py','Psychometric_IQ_Team_Formation-main\Gui_Psychometric_test_EngVersion.py','Psychometric_IQ_Team_Formation-main\Re_Run_OR_End_ENG.py']
-    scripts_gr_iq = ['Psychometric_IQ_Team_Formation-main\IQ_Welcome_gr.py', 'Psychometric_IQ_Team_Formation-main\IQ_gr.py','Psychometric_IQ_Team_Formation-main\Psychometric_Welcome_gr.py','Psychometric_IQ_Team_Formation-main\Gui_Psychometric_test_GrVersion.py','Psychometric_IQ_Team_Formation-main\Re_Run_OR_End_GR.py']
-    scripts_eng_psych = ['Psychometric_IQ_Team_Formation-main\Psychometric_Welcome_eng.py', 'Psychometric_IQ_Team_Formation-main\Gui_Psychometric_test_EngVersion.py','Psychometric_IQ_Team_Formation-main\IQ_Welcome_eng.py','Psychometric_IQ_Team_Formation-main\IQ_eng.py','Psychometric_IQ_Team_Formation-main\Re_Run_OR_End_ENG.py']
-    scripts_gr_psych = ['Psychometric_IQ_Team_Formation-main\Psychometric_Welcome_gr.py', 'Psychometric_IQ_Team_Formation-main\Gui_Psychometric_test_GrVersion.py','Psychometric_IQ_Team_Formation-main\IQ_Welcome_gr.py','Psychometric_IQ_Team_Formation-main\IQ_gr.py','Psychometric_IQ_Team_Formation-main\Re_Run_OR_End_GR.py']
+    scripts_eng_iq = ['IQ_Welcome_eng.py', 'IQ_eng.py','Psychometric_Welcome_eng.py','Gui_Psychometric_test_EngVersion.py','Re_Run_OR_End_ENG.py']
+    scripts_gr_iq = ['IQ_Welcome_gr.py', 'IQ_gr.py','Psychometric_Welcome_gr.py','Gui_Psychometric_test_GrVersion.py','Re_Run_OR_End_GR.py']
+    scripts_eng_psych = ['Psychometric_Welcome_eng.py', 'Gui_Psychometric_test_EngVersion.py','IQ_Welcome_eng.py','IQ_eng.py','Re_Run_OR_End_ENG.py']
+    scripts_gr_psych = ['Psychometric_Welcome_gr.py', 'Gui_Psychometric_test_GrVersion.py','IQ_Welcome_gr.py','IQ_gr.py','Re_Run_OR_End_GR.py']
 
     global score, team_role
 
@@ -626,13 +626,13 @@ while run == 1:
             # Loop through the scripts and launch each one as a separate process
             for script in scripts_eng_psych:
                 # Launch the script as a subprocess
-                if script == 'Psychometric_IQ_Team_Formation-main\Gui_Psychometric_test_EngVersion.py':
+                if script == 'Gui_Psychometric_test_EngVersion.py':
                     result = subprocess.check_output(['python', script]) 
                     team_role = result.decode()
-                elif script == 'Psychometric_IQ_Team_Formation-main\IQ_eng.py':
+                elif script == 'IQ_eng.py':
                     result = subprocess.check_output(['python', script])
                     score = result.decode()
-                elif script == 'Psychometric_IQ_Team_Formation-main\Re_Run_OR_End_ENG.py':
+                elif script == 'Re_Run_OR_End_ENG.py':
                     result = subprocess.check_output(['python', script])
                     run = int(result.decode())
                 else:
@@ -643,13 +643,13 @@ while run == 1:
             # Επανέλαβε τα προγράμματα, το καθένα ως ξεχωριστή διαδικασία
             for script in scripts_gr_psych:
                 # Ξεκίνα το πρόγραμμα ως υποπρόγραμμα
-                if script == 'Psychometric_IQ_Team_Formation-main\Gui_Psychometric_test_GrVersion.py':
+                if script == 'Gui_Psychometric_test_GrVersion.py':
                     result = subprocess.check_output(['python', script])
                     team_role = result.decode()
-                elif script == 'Psychometric_IQ_Team_Formation-main\IQ_gr.py':
+                elif script == 'IQ_gr.py':
                     result = subprocess.check_output(['python', script])
                     score = result.decode()
-                elif script == 'Psychometric_IQ_Team_Formation-main\Re_Run_OR_End_GR.py':
+                elif script == 'Re_Run_OR_End_GR.py':
                     result = subprocess.check_output(['python', script])
                     run = int(result.decode())
                 else:
@@ -661,13 +661,13 @@ while run == 1:
             # Loop through the scripts and launch each one as a separate process
             for script in scripts_eng_iq:
                 # Launch the script as a subprocess
-                if script == 'Psychometric_IQ_Team_Formation-main\IQ_eng.py':
+                if script == 'IQ_eng.py':
                     result = subprocess.check_output(['python', script])
                     score = result.decode()
-                elif script == 'Psychometric_IQ_Team_Formation-main\Gui_Psychometric_test_EngVersion.py':
+                elif script == 'Gui_Psychometric_test_EngVersion.py':
                     result = subprocess.check_output(['python', script])
                     team_role = result.decode()
-                elif script == 'Psychometric_IQ_Team_Formation-main\Re_Run_OR_End_ENG.py':
+                elif script == 'Re_Run_OR_End_ENG.py':
                     result = subprocess.check_output(['python', script])
                     run = int(result.decode())
                 else:
@@ -678,13 +678,13 @@ while run == 1:
             # Επανέλαβε τα προγράμματα, το καθένα ως ξεχωριστή διαδικασία
             for script in scripts_gr_iq:
             # Ξεκίνα το πρόγραμμα ως υποπρόγραμμα
-                if script == 'Psychometric_IQ_Team_Formation-main\IQ_gr.py':
+                if script == 'IQ_gr.py':
                     result = subprocess.check_output(['python', script])
                     score = result.decode()
-                elif script == 'Psychometric_IQ_Team_Formation-main\Gui_Psychometric_test_GrVersion.py':
+                elif script == 'Gui_Psychometric_test_GrVersion.py':
                     result = subprocess.check_output(['python', script])
                     team_role = result.decode()
-                elif script == 'Psychometric_IQ_Team_Formation-main\Re_Run_OR_End_GR.py':
+                elif script == 'Re_Run_OR_End_GR.py':
                     result = subprocess.check_output(['python', script])
                     run = int(result.decode())
                 else:
@@ -727,8 +727,11 @@ def create_teams(team_size):
 
     if team_size == 3:
         # create teams of 3 with at least one leader and one creative/researcher
+        # Δημιυργία ομάδων 3 χρηστών με τουλάχιστον ένα Αρχηγό, ένα μέλος και έναν ερευνητή ή δημιουργικό
         teams = []
         while (leaders and (creatives or researchers) and members) or (len(leaders) + len(creatives) + len(researchers) + len(members) >= 3):
+            # The way the teams are formmed based on the limitations
+            # Διαδικασία δημιουργίας ομάδων με τους περιορισμούς
             if leaders:
                 leader = leaders.pop(0)
                 if members:
@@ -780,11 +783,12 @@ def create_teams(team_size):
                     elif lang == "Greek":
                         team_text += f"Ομάδα {i+1}:\n"
                     # loop over each user in the team and add their username and team_role to team_text
+                    # Επανέλαβε για κάθε χρήστη στην ομάδα την εισαγωγή του ονόματος και του ρόλου στο κείμενο της ομάδας
                     for user in team:
                         c.execute("SELECT team_role, score FROM users WHERE username = ?", (user,))
                         team_role, score = c.fetchone()
                         team_text += f"{user} ({team_role.strip()}), score: {score}\n"
-                    team_text += "\n"  # add a newline character after each team
+                    team_text += "\n"  # add a newline character after each team / Προσθήκη νέας γραμμής μετά από κάθε ο΄μαδα
 
                 if lang == "English":
                     messagebox.showinfo("Teams created", team_text)
@@ -795,7 +799,10 @@ def create_teams(team_size):
     else:
         teams = []
         # create teams of 4 with one of each role
+        # Δημιουργία ομάδων 4 χρηστών με ένα χρήστη από κάθε ρόλο
         while (leaders and creatives and researchers and members) or (len(leaders) + len(creatives) + len(researchers) + len(members) >= 4):
+            # The way the teams are formmed based on the limitations
+            # Διαδικασία δημιουργίας ομάδων με τους περιορισμούς
             if leaders:
                 leader = leaders.pop(0)
                 if members:
@@ -924,7 +931,7 @@ def create_teams(team_size):
                 team = remaining_users
                 teams.append(team)
 
-    # initialize team_text
+    # initialize team_text / Αρχικοπποίηση του κειμένου ομάδας
     team_text = "\n"
 
     for i, team in enumerate(teams):
@@ -933,11 +940,12 @@ def create_teams(team_size):
         elif lang == "Greek":
             team_text += f"Ομάδα {i+1}:\n"
         # loop over each user in the team and add their username and team_role to team_text
+        # Επανέλαβε για κάθε χρήστη στην ομάδα την εισαγωγή του ονόματος και του ρόλου στο κείμενο της ομάδας
         for user in team:
             c.execute("SELECT team_role, score FROM users WHERE username = ?", (user,))
             team_role, score = c.fetchone()
             team_text += f"{user} ({team_role.strip()}), score: {score}\n"
-        team_text += "\n"  # add a newline character after each team
+        team_text += "\n"  # add a newline character after each team / Προσθήκη νέας γραμμής μετά από κάθε ο΄μαδα
 
     if lang == "English":
         messagebox.showinfo("Teams created", team_text)
@@ -948,40 +956,42 @@ def create_teams(team_size):
 
 
 def close_window_eng():
+    # Function to close the team formmation in English
     messagebox.showinfo("Close Team Formation", "You select to close the team formation app!")
     window.destroy()
 
 def close_window_gr():
+    # Συνάρτηση για τον τερματισμό του σχηματισμού ομάδων στα Ελληνικά
     messagebox.showinfo("Τερματισμός", "Επιλέξατε να τερματίσετε την διαδικασία σχηματισμού ομάδων!")
     window.destroy()
 
 window = tk.Tk()
 window.title("Team Creator")
 
-# Get the screen width and height
+# Λήψη του πλάτους και του ύψους της οθόνης
 screen_width = window.winfo_screenwidth()
 screen_height = window.winfo_screenheight()
 
-# Set the window size
+# Καθορισμός του μεγέθους του παραθύρου
 window_width = 450
 window_height = 200
 window.geometry(f"{window_width}x{window_height}")
 
-# Calculate the x and y coordinates for the top-left corner of the window
+# Υπολογισμός των Χ και Ψ συντεταγμένων για την πάνω αριστερή γωνία του παραθύρου
 x = (screen_width // 2) - (window_width // 2)
 y = (screen_height // 2) - (window_height // 2)
 
-# Set the position of the window to the center of the screen
+# Καθορισμός της θέσης του παραθύρου στο κέντρο της οθόνης
 window.geometry(f"+{x}+{y}") 
 
-# add label
+# add / Προσθήκη label
 if lang == "English":
     label = tk.Label(window, text="Press the 'Create teams' button to form the teams")
 elif lang == "Greek":
     label = tk.Label(window, text="Πατήστε το κουμπί 'Σχηματισμός ομάδων' για να δημιουργηθούν οι ομάδες")
 label.pack()
 
-# add radio buttons for team size
+# add radio buttons for team size / Προσθήκη κουμπιών για το μέγεθος των ομάδων
 team_size_var = tk.StringVar(value="3")
 team_size_frame = tk.Frame(window)
 if lang == "English":
@@ -1013,16 +1023,11 @@ end_button.pack(pady=10)
 window.mainloop()
 
 #_________________________________________DISPLAY DATA/ΠΑΡΟΥΣΙΑΣΗ ΔΕΔΟΜΕΝΩΝ______________________________________
-
-import sqlite3
-import tkinter as tk
-from tkinter import messagebox
-
-# Create a connection to the database
+# Create a connection to the database / Δημιουργία σύνδεσης με το database
 conn = sqlite3.connect('users.db')
 c = conn.cursor()
 
-# Define a function to retrieve data from the database and display it in the GUI
+# Define a function to retrieve data from the database and display it in the GUI 
 def display_scores_eng():
     # Execute a SELECT statement to retrieve the data
     c.execute("SELECT username, team_role, score FROM users ORDER BY score DESC")
@@ -1068,45 +1073,46 @@ def display_scores_eng():
     close_button = tk.Button(scores_window, text="Close", command=scores_window.destroy)
     close_button.pack(pady=5)
 
+# Ορισμός συνάρτησης για ανάκτηση δεδομένων απο την βάση δεδομένων ανδ απεικόνισή τους στο GUI
 def display_scores_gr():
-    # Execute a SELECT statement to retrieve the data
+    # Εκτέλεσε ένα SELECT statement για να ανακτήσεις τα δεδομένα
     c.execute("SELECT username, team_role, score FROM users ORDER BY score DESC")
     data = c.fetchall()
 
-    # Create a new window for displaying the data
+    # Δημιουργία νέου παραθύρου για την παρουσίαση των δεδομένων
     scores_window = tk.Toplevel(root)
     scores_window.title("Παρουσίαση χρηστών")
 
-    # Set the position of the window to the right of the main window
+    # Τοποθέτησε το παράθυρο στα δεξία του κύριου παραθύρου
     scores_window.geometry(f"+{x + window_width + 10}+{y}")
 
-    # Create a canvas to hold the table
+    # Δημιούργησε ένα κανβά για την κράτηση του πίνακα
     canvas = tk.Canvas(scores_window)
     canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
-    # Add a scrollbar to the canvas
+    # Προσθήκη scrollbar στον κανβα
     scrollbar = tk.Scrollbar(scores_window, orient=tk.VERTICAL, command=canvas.yview)
     scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
     canvas.configure(yscrollcommand=scrollbar.set)
 
-    # Create a table to display the data
+    # Δημιουργία πίνακα για παρουσίαση δεδομένων
     table = tk.Frame(canvas)
     canvas.create_window((0, 0), window=table, anchor='nw')
 
-    # Create labels for the table headers
+    # Δημιουργία labels για τους τίτλους του πίνακα
     headers = ("Username", "Ρόλος στην Ομάδα", "Σκορ")
     for j, header in enumerate(headers):
         tk.Label(table, text=header, padx=10, pady=5, font=("TkDefaultFont", 12, "bold")).grid(row=0, column=j)
 
-    # Create labels for the data
+    # Δημιούργησε labels για τα δεδομένα
     for i, row in enumerate(data):
         for j, val in enumerate(row):
-            # If the current column is team_role and it's not the first row, add a newline character before the text
+            # Αν η τρέχουσα στήλη είναι η team_role και δεν είναι η πρώτη γραμμή, πρόσθεσε ένα χαραλτήρα νέας γραμμής πριν το κείμενο
             if j == 1 and i >= 0:
                 val = "\n\n" + val
             tk.Label(table, text=val, padx=10, pady=5).grid(row=i+1, column=j)
 
-    # Update the canvas to show the table
+    # Αννανέωσε τον κανβά για να δείξει τα επόμενα
     table.update_idletasks()
     canvas.configure(scrollregion=canvas.bbox('all'))
 
@@ -1123,7 +1129,7 @@ def display_highest_score_eng():
     highest_score_window = tk.Toplevel(root)
     highest_score_window.title("Display Highest Scores")
 
-    # Set the position of the window to the right of the main window
+    # Set the position of the window to the left of the main window
     highest_score_window.geometry(f"+{x - window_width - 150}+{y}")
 
     # Create a canvas to hold the table
@@ -1156,66 +1162,66 @@ def display_highest_score_eng():
     close_button.pack(pady=5)
 
 def display_highest_score_gr():
-    # Execute a SELECT statement to retrieve the data
+    # Εκτέλεσε ένα SELECT statement για να ανακτήσεις τα δεδομένα
     c.execute("SELECT username, score FROM users WHERE score = (SELECT MAX(score) FROM users)")
     data = c.fetchall()
 
-    # Create a new window for displaying the data
+    # Δημιουργία νέου παραθύρου για την παρουσίαση των δεδομένων
     highest_score_window = tk.Toplevel(root)
     highest_score_window.title("Κορυφαία σκορ")
 
-    # Set the position of the window to the right of the main window
+    # Τοποθέτησε το παράθυρο στα αριστερά του κύριου παραθύρου
     highest_score_window.geometry(f"+{x - window_width - 150}+{y}")
 
-    # Create a canvas to hold the table
+    # Δημιούργησε ένα κανβά για την κράτηση του πίνακα
     canvas = tk.Canvas(highest_score_window)
     canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
-    # Add a scrollbar to the canvas
+    # Προσθήκη scrollbar στον κανβα
     scrollbar = tk.Scrollbar(highest_score_window, orient=tk.VERTICAL, command=canvas.yview)
     scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
     canvas.configure(yscrollcommand=scrollbar.set)
 
-    # Create a table to display the data
+    # Δημιουργία πίνακα για παρουσίαση δεδομένων
     table = tk.Frame(canvas)
     canvas.create_window((0, 0), window=table, anchor='nw')
 
-    # Add table headers
+    # Προσθήκη τίτλων
     tk.Label(table, text='Username', padx=10, pady=5).grid(row=0, column=0)
     tk.Label(table, text='Σκορ', padx=10, pady=5).grid(row=0, column=1)
 
-    # Add data to the table
+    # Προσθήκη δεδομένων στον πίνακα
     for i, row in enumerate(data):
         tk.Label(table, text=row[0], padx=10, pady=5).grid(row=i+1, column=0)
         tk.Label(table, text=row[1], padx=10, pady=5).grid(row=i+1, column=1)
 
-    # Update the canvas to show the table
+    # Αννανέωσε τον κανβα για να παρουσιαστούν τα δεδομένα
     table.update_idletasks()
     canvas.configure(scrollregion=canvas.bbox('all'))
 
     close_button = tk.Button(highest_score_window, text="Τερματισμός", command=highest_score_window.destroy)
     close_button.pack(pady=5)
 
-# Create the main window
+# Create the main window / Δημιουργία παραθύρου
 root = tk.Tk()
 
-# Get the screen width and height
+# Get the screen width and height / Λήψη του πλάτους και του ύψους της οθόνης
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
-# Set the window size
+# Set the window size / Καθορισμός του μεγέθους του παραθύρου
 window_width = 300
 window_height = 150
 root.geometry(f"{window_width}x{window_height}")
 
-# Calculate the x and y coordinates for the top-left corner of the window
+# Calculate the x and y coordinates for the top-left corner of the window / Υπολογισμός των Χ και Ψ συντεταγμένων για την πάνω αριστερή γωνία του παραθύρου
 x = (screen_width // 2) - (window_width // 2)
 y = (screen_height // 2) - (window_height // 2)
 
-# Set the position of the window to the center of the screen
+# Set the position of the window to the center of the screen / Καθορισμός της θέσης του παραθύρου στο κέντρο της οθόνης
 root.geometry(f"+{x}+{y}")
 
-# Create a button to display the scores
+# Create a button to display the scores / Δημιυργία κουμπιών για την παρουσίαση των σκορ
 if lang == "English":
     scores_button = tk.Button(root, text="Display Scores", command=display_scores_eng)
 elif lang == "Greek":
@@ -1241,8 +1247,8 @@ elif lang == "Greek":
     close_button = tk.Button(root, text="Τερματισμός", command=close_gr)
 close_button.pack(pady=5)
 
-# Run the main loop
+# Run the main loop / έναρξη του κύριου βρόγχου επανάληψης
 root.mainloop()
 
-# Close the connection to the database
+# Close the connection to the database / Τερματισμός σύνδεσης με το database
 conn.close()
