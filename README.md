@@ -23,7 +23,7 @@ We used:
 3. hashlib library to hash the password in oreder to be protected from threats.
 4. tkinter for the GUI.
 5. suprocess because we wanted to use subprograms, make our code easily read and efficient.
-6. to check whether a given string matches a given pattern, or contains such a pattern.
+6. re to check whether a given string matches a given pattern, or contains such a pattern.
 # Problems we faced
 1. Rookie python users
 2. Little time, a lot of things to do
