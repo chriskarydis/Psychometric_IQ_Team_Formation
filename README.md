@@ -2,6 +2,8 @@
 Psychometric_IQ_Team_Formation
 # Project Description
 Psychometric test, IQ test and Team Formation App with Python using GUI
+
+To begin with, the title of our paper is "Psychometric_IQ_Team_Formation", whereas originally it was "IQ_SQUAD_GAME" and we thought the new title fits better. As the title suggests, our application is based on two main pillars and concludes with the third and main one, the goal. One pillar is the psychometric test through which the user is categorized as a role in a team for work. These roles depend on the answers given in the test and are: -Leader, -Researcher, -Creative and -Member. Then, the second pillar is the IQ test, which contains mathematical operations, mini-games (Hanoi, Hangman) and general knowledge questions. By completing the test the user gets a symbolic score that reflects how well the user did and in a subsequent evolution could reflect the user's actual IQ. The final pillar is that of group formation which is the main reason for the existence of our application. After fulfilling the previous tests, and having performed them for an honest number of users (e.g. 10+), the application displays the teams that can be formed but with the criterion of having the right combination of roles to make the teams as efficient as possible in their tasks. Finally, all the users who used the application are also shown separately, accompanied by their roles and their score, and in a separate window the user or users with the highest score.
 # Motivation
 We decided to create this app for a university project. Our university is Ionian University Department of Informatics.
 # Reason why we build this project
